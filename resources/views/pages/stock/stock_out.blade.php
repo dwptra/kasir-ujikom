@@ -1,5 +1,5 @@
 @extends('layout.dashboard')
-@section('title', 'Stock')
+@section('title', 'Stock Keluar')
 @section('content')
     <section class="section">
         <div class="section-header">

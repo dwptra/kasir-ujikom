@@ -1,5 +1,5 @@
 @extends('layout.dashboard')
-@section('title', 'Create User')
+@section('title', 'Create Account')
 @section('content')
     <section class="section">
         <div class="section-header">
