@@ -127,7 +127,7 @@ class PenjualanController extends Controller
                         'penjualan_id' => $penjualan->id,
                         'produk_id' => $item->id,
                         'total_product' => $product["quantity"],
-                        'subtotal' => $item->price
+                        'subtotal' => $item->price * $product["quantity"]
                     ]);
 
 
