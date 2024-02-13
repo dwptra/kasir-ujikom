@@ -56,7 +56,7 @@ class PenjualanController extends Controller
                 }
             }
             if (!$found) {
-                $errorMessages[] = "Produk dengan kode '" . $product["code"] . "' tidak tersedia";
+                $errorMessages[] = $product["code"];
             }
         }
 

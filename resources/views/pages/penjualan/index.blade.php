@@ -23,7 +23,11 @@
                         <span>&times;</span>
                     </button>
                     <b>Fail:</b>
-                    {{ session('fail') }}
+                    Produk dengan kode
+                    @foreach (session('fail') as $code)
+                        <b>{{ $code }}</b>,
+                    @endforeach
+                    tidak tersedia
                 </div>
             </div>
         @endif
@@ -107,13 +111,15 @@
                                 </div>
                                 <div class="form-group col-md-4 col-sm-6 col-12">
                                     <label>Diskon<span class="text-danger">*</span></label>
-                                    <input type="number" name="discount[]" id="discount" value="0" class="form-control total-input">
+                                    <input type="number" name="discount[]" id="discount" value="0"
+                                        class="form-control total-input">
                                     <div class="invalid-feedback">
                                         Silahkan isi diskon
                                     </div>
                                 </div>
                                 <div class="form-group col-12">
-                                    <button type="button" class="btn btn-danger" onclick="removeProductInput(this)">Cancel</button>
+                                    <button type="button" class="btn btn-danger"
+                                        onclick="removeProductInput(this)">Cancel</button>
                                 </div>
                             </div>
                         </div>
