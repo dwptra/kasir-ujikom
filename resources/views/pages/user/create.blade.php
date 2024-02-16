@@ -39,7 +39,7 @@
                             </div>
                             <div class="form-group col-md-6 col-12">
                                 <label>Role<span class="text-danger">*</span></label>
-                                <select class="form-control" required>
+                                <select class="form-control" name="role" required>
                                     <option disabled selected>Select Role</option>
                                     <option value="petugas">Petugas</option>
                                     <option value="administrator">Administrator</option>
