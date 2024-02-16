@@ -60,16 +60,38 @@
                                         <td>{{ $acc->last_login }}</td>
                                     @endif
                                     <td>
-                                        <form method="post" action="{{ route('user.delete', $acc->id) }}">
-                                            <a href="{{ route('user.edit', $acc->id) }}" class="btn btn-primary">Edit</a>
-                                            @method('DELETE')
-                                            @csrf
-                                            @if (Auth::user()->id != $acc->id)
-                                                <button class="btn btn-danger" onclick="buttonConfirm()">Delete</button>
-                                            @endif
-                                        </form>
+                                        <a href="{{ route('user.edit', $acc->id) }}" class="btn btn-primary">Edit</a>
+                                        @if (Auth::user()->id != $acc->id)
+                                            <button class="btn btn-danger" type="button" data-toggle="modal"
+                                                data-target="#deleteConfirm{{ $acc->id }}">Delete</button>
+                                        @endif
                                     </td>
                                 </tr>
+                                <div class="modal fade" tabindex="-1" role="dialog" id="deleteConfirm{{ $acc->id }}">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Konfirmasi</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>Yakin ingin menghapus data?</p>
+                                            </div>
+                                            <div class="modal-footer bg-whitesmoke br">
+                                                <form method="post" action="{{ route('user.delete', $acc->id) }}">
+                                                    @method('DELETE')
+                                                    @csrf
+                                                    <button class="btn btn-danger" type="submit">Yes</button>
+                                                </form>
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">No</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             @endforeach
                         </table>
                     </div>
